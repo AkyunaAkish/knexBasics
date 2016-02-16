@@ -61,7 +61,7 @@ exports.down = function(knex, Promise) {
 $ knex migrate:latest
 ```
 
-* To properly hook knex up to your routes file you need to add this like to your routes files - in this case routes/index.js file:
+* To properly hook knex up to your routes file you need to add this line to your routes files - in this case routes/index.js file:
 
 ```
 var knex = require('knex')(require('../knexfile')['development']);
