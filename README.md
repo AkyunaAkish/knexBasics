@@ -76,7 +76,8 @@ var knex = require('knex')(require('../knexfile')['development']);
 ```
 knex.table('humans')
 .where({id: req.params.id})
-.update(req.body).then(function(res){
+.update(req.body)
+.then(function(res){
 
 }).then(function(){
   res.redirect('/');
@@ -89,8 +90,10 @@ OR
 knex('todos').insert(req.body)
   .then(function(res){
 
-  }).then(function(){
-    knex('todos').then(function (results) {
+  })
+  .then(function(){
+    knex('todos')
+    .then(function (results) {
 
       res.json(results);
 
