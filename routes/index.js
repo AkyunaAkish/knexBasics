@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addhuman', function(req, res, next) {
-  console.log(req.body);
 
   knex('humans').insert(req.body)
   .then(function(res){
@@ -34,7 +33,6 @@ router.post('/addhuman', function(req, res, next) {
 
 
 router.post('/edithuman/:id', function(req,res,next){
-  console.log(req.body);
   knex.table('humans')
   .where({id: req.params.id})
   .update(req.body).then(function(res){
@@ -47,7 +45,6 @@ router.post('/edithuman/:id', function(req,res,next){
 
 
 router.post('/removehuman/:id', function(req, res, next) {
-  console.log(req.params);
 
   knex('humans')
   .where('id', req.params.id)
