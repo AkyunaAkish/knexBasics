@@ -1,6 +1,6 @@
 # Knex Basics walkthrough
 
-### Setup
+### Setting up knex
 * Note: new versions of knex have a couple of bugs, so it's advised to specifically download an older version(0.9.0) until those issues get worked out
 ```
 $ take someApp
