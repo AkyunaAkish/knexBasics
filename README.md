@@ -46,7 +46,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name');
     table.integer('age');
-    table.string('photo');
     table.timestamps();
   })
 };
