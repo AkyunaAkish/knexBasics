@@ -1,2 +1,29 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+{{#humans}}
+
+{{name}}
+{{age}}
+
+{{#if id}}
+<form action="/removehuman/{{id}}" method="post">
+  <input type="submit" name="name" value="Delete">
+</form>
+{{/if}}
+
+{{#if id}}
+<form action="/edithuman/{{id}}" method="post">
+  <input type="text" name="name" value="{{name}}">
+  <input type="number" name="age" value="{{age}}">
+  <input type="submit" value="Edit">
+</form>
+{{/if}}
+
+{{/humans}}
+
+<form action="/addhuman" method="post">
+
+  <input type="text" name="name" value="">
+  <input type="number" name="age" value="">
+  <input type="submit" value="Submit Human">
+
+</form>
