@@ -2,7 +2,7 @@
 
 ### Setting up and using knex
 * Must have node, the express generator, and postgres installed
-* To ger node and postgres:
+* To get node and postgres:
 * Install brew:
 ```
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
