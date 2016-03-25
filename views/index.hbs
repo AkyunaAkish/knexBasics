@@ -20,9 +20,15 @@
 
 {{/humans}}
 
-<form action="/addhuman" method="post">
+{{#if error}}
+<h3 style="color:red;">{{error}}</h3> 
+{{/if}}
 
+<h2>Add a Human!</h2>
+<form action="/addhuman" method="post">
+  <label>Name</label>
   <input type="text" name="name" value="">
+  <label>Age</label>
   <input type="number" name="age" value="">
   <input type="submit" value="Submit Human">
 

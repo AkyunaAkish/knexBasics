@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     if (results.length !== 0) {
       res.render('index', { humans: results });
     }else{
-      res.render('index', { humans: 'no humans added' });
+      res.render('index', { error: 'no humans added' });
     }
 
   })
@@ -17,47 +17,32 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/addhuman', function(req, res, next) {
-
-  knex('humans').insert(req.body)
-  .then(function(res){
-
-  }).then(function(){
-    knex('humans').then(function (results) {
-
+  if (req.body.name && req.body.age) {
+    knex('humans').insert(req.body)
+    .then(function(response){
       res.redirect('/');
-
     })
-  })
-
+  } else {
+    res.render('index', { error: 'Please fill out the form' });
+  }
 });
 
 
 router.post('/edithuman/:id', function(req,res,next){
   knex.table('humans')
   .where({id: req.params.id})
-  .update(req.body).then(function(res){
-
-  }).then(function(){
+  .update(req.body).then(function(response){
     res.redirect('/');
   })
-
 });
 
 
 router.post('/removehuman/:id', function(req, res, next) {
-
   knex('humans')
   .where('id', req.params.id)
-  .del().then(function(res){
-
-  }).then(function(){
-    knex('humans').then(function (results) {
-
-      res.redirect('/');
-
-    })
+  .del().then(function(response){
+    res.redirect('/');
   })
-
 });
 
 module.exports = router;

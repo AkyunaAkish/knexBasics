@@ -69,34 +69,3 @@ var knex = require('knex')(require('../knexfile')['development']);
 
 ### CRUD examples
 * You can find examples of some basic CRUD in the routes/index.js file of this application
-
-#### Something to be aware of:
-* Whether you're using res.json in an express/angular app or using res.render or res.redirect many times you'll need to create 2 .then statements and insert res.json/res.render or res.redirect in the second .then in order for them properly execute. Example:
-
-```
-knex.table('humans')
-.where({id: req.params.id})
-.update(req.body)
-.then(function(res){
-
-}).then(function(){
-  res.redirect('/');
-})
-```
-
-OR
-
-```
-knex('todos').insert(req.body)
-  .then(function(res){
-
-  })
-  .then(function(){
-    knex('todos')
-    .then(function (results) {
-
-      res.json(results);
-
-    })
-  })
-```
