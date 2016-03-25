@@ -1,6 +1,26 @@
 # Knex Basics walkthrough
 
 ### Setting up and using knex
+* Must have node, the express generator, and postgres installed
+* To get node and postgres:
+* Install brew:
+```
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+* Install node and postgres
+```
+$ brew update
+$ brew install node
+$ brew install postgres
+```
+* Install the express generator
+```
+$ npm install express-generator -g
+```
+* Install nodemon to run your server(using the command $ nodemon) from the root directory of your application
+```
+$ npm install -g nodemon
+```
 * Note: new versions of knex have a couple of bugs, so it's advised to specifically download an older version(0.9.0) until those issues get worked out
 ```
 $ take someApp
@@ -68,4 +88,4 @@ var knex = require('knex')(require('../knexfile')['development']);
 ```
 
 ### CRUD examples
-* You can find examples of some basic CRUD in the routes/index.js file of this application
+* You can find examples of some basic CRUD in the routes/index.js file of this repository
